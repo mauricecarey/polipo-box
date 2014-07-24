@@ -26,11 +26,20 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ['site-cookbooks']
     chef.add_recipe 'polipo'
+    chef.add_recipe 'dnsmasq::dns'
 
     chef.json = {
       polipo: {
         allowed_clients: '0.0.0.0/0',
         proxy_address: '::0'
+      },
+      dnsmasq: {
+        domain: 'cloud.io.com',
+        dns: {
+          nameservers: [
+            '192.168.110.11'
+          ]
+        }
       }
     }
   end
