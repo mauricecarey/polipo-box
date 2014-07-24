@@ -17,7 +17,7 @@ Note that the example configuration allows access from everywhere. That should b
 
 * Clone this repository and customize as needed:
 
-        git clone https://github.com/tmatilai/polipo-box.git
+        git clone https://github.com/mauricecarey/polipo-box.git
         cd polipo-box
         # edit Vagrantfile
 
@@ -34,7 +34,7 @@ Note that the example configuration allows access from everywhere. That should b
 * Configure all Vagrant boxes to use the proxy by default. Put something like the following to _$HOME/.vagrant.d/Vagrantfile_:
 ```ruby
 Vagrant.configure("2") do |config|
-  config.proxy.http     = "http://192.168.0.200:8123/"
+  config.proxy.http     = "http://192.168.33.200:8123/"
   config.proxy.no_proxy = "localhost,127.0.0.1"
   # other global configuration
 end
